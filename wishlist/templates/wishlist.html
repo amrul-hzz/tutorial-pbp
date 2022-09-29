@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
-
-
 {% block content %}
 
 <!-- As a link -->
-<nav class="navbar bg-dark">
+<nav class="navbar bg-light">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">{{nama}}</span>
       <button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
