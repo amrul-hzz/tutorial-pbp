@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+         $(document).ready(function(){
+            $("btn").click(function(){
+                $("#data").load("");
+            });
+         });
+    </script>
+</head>
+
+
+<body>
+    <!-- As a link -->
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">{{nama}}</span>
+        <button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+        </div>
+    </nav>
+    
+    <button id="btn">Get Data</button> 
+
+    <div id="data">
+    </div>
+
+    <h4>Tambahkan Barang</h4>
+    <form method="POST">
+        <label for="nama_barang">Nama Barang:</label><br>
+        <input type="text" id="nama_barang" name="nama_barang"><br>
+        <label for="harga_barang">Harga Barang:</label><br>
+        <input type="number" id="harga_barang" name="harga_barang"><br>
+        <label for="deskripsi">Deskripsi</label><br>
+        <input type="text" id="deskripsi" name="deskripsi"><br>
+
+        <button id="add_wishlist_ajax" type="submit" name="submit">Tambahkan</button>
+        
+    </form> 
+
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+
+    {% endblock content %}
+</body>
